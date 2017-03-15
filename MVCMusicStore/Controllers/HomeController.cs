@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCMusicStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,8 +16,8 @@ namespace MVCMusicStore.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = "This is my page,and my name is wangyangang.Ha Ha";
+            ViewBag.CurrentTime = DateTime.Now;
             return View();
         }
 
@@ -24,6 +25,19 @@ namespace MVCMusicStore.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult Albums()
+        {
+            var albums = new List<Album>();
+            for (int i = 0; i < 10; i++)
+            {
+                albums.Add(new Album() { Title = "Product " + i });
+            }
+            return View(albums);
+        }
+        public ActionResult Edit()
+        {
             return View();
         }
     }
